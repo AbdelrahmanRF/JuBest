@@ -118,7 +118,7 @@
         <div class="col-lg-10">
           <% for (let i = 0; i < stories.length; i++) { %>
           <% if (i === 0) { %>
-          <video width="500" controls preload="metadata" id="myVid" >
+          <video style="width: 31.25rem;" controls preload="metadata" id="myVid" >
             <source src="<%= stories[i].uploadedFile.url%>" type="video/mp4">
           </video>
           <p>Arabic stories to help you learn the language as quickly as possible</p>
@@ -179,7 +179,7 @@
       <div class="row">   
         <% for (let i = 1; i < stories.length; i++) { %>
         <div class="col-lg-4 col-md-6 pb-1">
-          <video width="300" controls >
+          <video style="width: 18.75rem;" controls >
             <source src="<%= stories[i].uploadedFile.url %>" type="video/mp4">
           </video>
           <% if (currentUser && currentUser.role === 'admin') { %>

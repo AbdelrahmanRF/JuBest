@@ -29,8 +29,8 @@ db.once("open", () => {
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
-app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/../frontend/views');
+app.use(express.static(__dirname + '/../frontend/public'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodoverride('_method'));

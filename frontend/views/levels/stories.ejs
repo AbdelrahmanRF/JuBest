@@ -179,7 +179,7 @@
       <div class="row">   
         <% for (let i = 1; i < stories.length; i++) { %>
         <div class="col-lg-4 col-md-6 pb-1">
-          <video style="width: 18.75rem;" controls >
+          <video style="width: 18.75rem;" class="col-auto" controls >
             <source src="<%= stories[i].uploadedFile.url %>" type="video/mp4">
           </video>
           <% if (currentUser && currentUser.role === 'admin') { %>

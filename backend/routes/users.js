@@ -11,7 +11,7 @@ router.get('/register', (req, res) => {
 router.post('/register', async (req, res) => {
     try {
       const { email, password, confirmPassword  } = req.body;
-  
+       email = email.toLowerCase();
       // Validate password using regular expression
       const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
       if (!String(password).match(passwordPattern)) {

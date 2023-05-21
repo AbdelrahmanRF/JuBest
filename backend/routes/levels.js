@@ -75,8 +75,7 @@ router.post('/beginner/words/add', isLoggedIn, upload.single('pronunciationFile'
   await newWord.save()
     .then(word => {
       req.flash('success', 'Word added successfully.');
-     // res.redirect(`/levels/beginner/words#${word._id}`);
-    res.redirect(`/levels/beginner/words`);
+      res.redirect(`/levels/beginner/words#${word._id}`);
     })
     .catch(err => {
       console.error('Error adding word:', err);
@@ -155,6 +154,7 @@ router.put('/beginner/words/:id', isLoggedIn, upload.single('pronunciationFile')
     });
 
 }));
+
 router.delete('/beginner/words/:id', isLoggedIn, isAdmin, catchAsync(async (req, res) => {
   const { id } = req.params;
 
@@ -167,12 +167,18 @@ router.delete('/beginner/words/:id', isLoggedIn, isAdmin, catchAsync(async (req,
       const resource_type = "video";
       await cloudinary.uploader.destroy(public_id, { resource_type });
     }
+
+    // Get the previous word ID
+    const previousWord = await Word.findOne({ _id: { $lt: id } }, {}, { sort: { _id: -1 } });
+
     // Delete the word from the database
     await Word.findByIdAndDelete(id);
 
     req.flash('success', 'Word has been deleted.');
 
-    res.redirect('/levels/beginner/words');
+    // Redirect to the previous word if available, or the word list if no previous word exists
+    const redirectUrl = previousWord ? `/levels/beginner/words#${previousWord._id}` : "/levels/beginner/words";
+    res.redirect(redirectUrl);
   } else {
     res.render('error', { message: 'Error deleting word', err: new Error });
   }
@@ -228,8 +234,7 @@ router.post('/beginner/sentences/add', isLoggedIn, upload.single('pronunciationF
   await newPhrase.save()
     .then(phrase => {
       req.flash('success', 'Phrase added successfully.');
-    //  res.redirect(`/levels/beginner/sentences#${phrase._id}`);
-     res.redirect(`/levels/beginner/sentences`);
+      res.redirect(`/levels/beginner/sentences#${phrase._id}`);
     })
     .catch(err => {
       console.error('Error adding phrase:', err);
@@ -300,7 +305,7 @@ router.put('/beginner/sentences/:id', isLoggedIn, upload.single('pronunciationFi
   await existingPhrase.save()
     .then(phrase => {
       req.flash('success', 'Phrase updated successfully');
-      res.redirect(`/levels/beginner/sentences`);
+      res.redirect(`/levels/beginner/sentences#${phrase._id}`);
     })
     .catch(err => {
       console.error('Error updating phrase:', err);
@@ -321,10 +326,18 @@ router.delete('/beginner/sentences/:id', isLoggedIn, isAdmin, catchAsync(async (
       const resource_type = "video";
       await cloudinary.uploader.destroy(public_id, { resource_type });
     }
+
+    // Get the previous phrase ID
+    const previousPhrase = await Phrase.findOne({ _id: { $lt: id } }, {}, { sort: { _id: -1 } });
+
+    // Delete the phrase from the database
     await Phrase.findByIdAndDelete(id);
 
     req.flash('success', 'Phrase has been deleted.');
-    res.redirect('/levels/beginner/sentences');
+
+    // Redirect to the previous phrase if available, or the sentence list if no previous phrase exists
+    const redirectUrl = previousPhrase ? `/levels/beginner/sentences#${previousPhrase._id}` : "/levels/beginner/sentences";
+    res.redirect(redirectUrl);
   } else {
     res.render('error', { message: 'Error deleting phrase', err: new Error });
   }
@@ -454,7 +467,8 @@ router.post('/:level/topics/postLink/:id', validateLevel, isLoggedIn, isAdmin, c
     title
   };
   topic.links.push(link);
-  await topic.save()
+  await topic.save();
+
   const newLinkId = topic.links[topic.links.length - 1]._id; // Get the ID of the newly added link
 
   req.flash('success', 'Link posted successfully');
@@ -513,20 +527,12 @@ router.post('/:level/topics/addMaterial/:id', validateLevel, isLoggedIn, isAdmin
     icon: getIcon(fileTypeResult)
   };
   topic.materials.push(material);
-  await topic.save()
-  .then(topic => {
- //const newMaterialId = topic.materials[topic.materials.length - 1]._id; // Get the ID of the newly added material
+  await topic.save();
+
+  const newMaterialId = topic.materials[topic.materials.length - 1]._id; // Get the ID of the newly added material
+
   req.flash('success', `${title} uploaded successfully.`);
- // res.redirect(`/levels/${level}/topics#${newMaterialId}`);
-    res.redirect(`/levels/${level}/topics`);
-
-    })
-    .catch(err => {
-      // console.log(err);
-      res.render('error', { message: 'Error uploading material', err: err });
-    });
-
-  
+  res.redirect(`/levels/${level}/topics#${newMaterialId}`);
 }));
 
 

@@ -118,7 +118,7 @@
         <div class="col-lg-10">
           <% for (let i = 0; i < stories.length; i++) { %>
           <% if (i === 0) { %>
-          <video style="width: 31.25rem;" controls preload="metadata" id="myVid" >
+          <video style="width: 31.25rem;" class= "col-auto" controls preload="metadata" id="myVid" >
             <source src="<%= stories[i].uploadedFile.url%>" type="video/mp4">
           </video>
           <p>Arabic stories to help you learn the language as quickly as possible</p>

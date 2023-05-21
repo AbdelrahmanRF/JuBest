@@ -75,7 +75,8 @@ router.post('/beginner/words/add', isLoggedIn, upload.single('pronunciationFile'
   await newWord.save()
     .then(word => {
       req.flash('success', 'Word added successfully.');
-      res.redirect(`/levels/beginner/words#${word._id}`);
+     // res.redirect(`/levels/beginner/words#${word._id}`);
+    res.redirect(`/levels/beginner/words`);
     })
     .catch(err => {
       console.error('Error adding word:', err);
@@ -227,7 +228,8 @@ router.post('/beginner/sentences/add', isLoggedIn, upload.single('pronunciationF
   await newPhrase.save()
     .then(phrase => {
       req.flash('success', 'Phrase added successfully.');
-      res.redirect(`/levels/beginner/sentences#${phrase._id}`);
+    //  res.redirect(`/levels/beginner/sentences#${phrase._id}`);
+     res.redirect(`/levels/beginner/sentences`);
     })
     .catch(err => {
       console.error('Error adding phrase:', err);
@@ -298,7 +300,7 @@ router.put('/beginner/sentences/:id', isLoggedIn, upload.single('pronunciationFi
   await existingPhrase.save()
     .then(phrase => {
       req.flash('success', 'Phrase updated successfully');
-      res.redirect(`/levels/beginner/sentences#${phrase._id}`);
+      res.redirect(`/levels/beginner/sentences`);
     })
     .catch(err => {
       console.error('Error updating phrase:', err);
@@ -513,9 +515,10 @@ router.post('/:level/topics/addMaterial/:id', validateLevel, isLoggedIn, isAdmin
   topic.materials.push(material);
   await topic.save()
   .then(topic => {
- const newMaterialId = topic.materials[topic.materials.length - 1]._id; // Get the ID of the newly added material
+ //const newMaterialId = topic.materials[topic.materials.length - 1]._id; // Get the ID of the newly added material
   req.flash('success', `${title} uploaded successfully.`);
-  res.redirect(`/levels/${level}/topics#${newMaterialId}`);
+ // res.redirect(`/levels/${level}/topics#${newMaterialId}`);
+    res.redirect(`/levels/${level}/topics`);
 
     })
     .catch(err => {

@@ -39,6 +39,7 @@ app.use(mongoSanitize());
 const secret = process.env.SECRET || 'thisShouldBeChanged';
 const sessionConfig = {
     secret: secret,
+    secure: true,
     resave: false,
     saveUninitialized: true,
     cookie: {

@@ -154,7 +154,6 @@ router.put('/beginner/words/:id', isLoggedIn, upload.single('pronunciationFile')
     });
 
 }));
-
 router.delete('/beginner/words/:id', isLoggedIn, isAdmin, catchAsync(async (req, res) => {
   const { id } = req.params;
 
@@ -167,18 +166,12 @@ router.delete('/beginner/words/:id', isLoggedIn, isAdmin, catchAsync(async (req,
       const resource_type = "video";
       await cloudinary.uploader.destroy(public_id, { resource_type });
     }
-
-    // Get the previous word ID
-    const previousWord = await Word.findOne({ _id: { $lt: id } }, {}, { sort: { _id: -1 } });
-
     // Delete the word from the database
     await Word.findByIdAndDelete(id);
 
     req.flash('success', 'Word has been deleted.');
 
-    // Redirect to the previous word if available, or the word list if no previous word exists
-    const redirectUrl = previousWord ? `/levels/beginner/words#${previousWord._id}` : "/levels/beginner/words";
-    res.redirect(redirectUrl);
+    res.redirect('/levels/beginner/words');
   } else {
     res.render('error', { message: 'Error deleting word', err: new Error });
   }
@@ -326,18 +319,10 @@ router.delete('/beginner/sentences/:id', isLoggedIn, isAdmin, catchAsync(async (
       const resource_type = "video";
       await cloudinary.uploader.destroy(public_id, { resource_type });
     }
-
-    // Get the previous phrase ID
-    const previousPhrase = await Phrase.findOne({ _id: { $lt: id } }, {}, { sort: { _id: -1 } });
-
-    // Delete the phrase from the database
     await Phrase.findByIdAndDelete(id);
 
     req.flash('success', 'Phrase has been deleted.');
-
-    // Redirect to the previous phrase if available, or the sentence list if no previous phrase exists
-    const redirectUrl = previousPhrase ? `/levels/beginner/sentences#${previousPhrase._id}` : "/levels/beginner/sentences";
-    res.redirect(redirectUrl);
+    res.redirect('/levels/beginner/sentences');
   } else {
     res.render('error', { message: 'Error deleting phrase', err: new Error });
   }

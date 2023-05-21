@@ -369,9 +369,9 @@ router.post('/:level/topics/addTopic', validateLevel, isLoggedIn, isAdmin, catch
     return res.redirect('back');
   }
   // Check if the name already exists
-  const existingTopic = await Topic.findOne({ name });
+  const existingTopic = await Topic.findOne({ name, level });
   if (existingTopic) {
-    req.flash('error', 'A topic with the same name already exists.');
+    req.flash('error', 'A topic with the same name already exists in this level.');
     return res.redirect('back');
   }
   const newTopic = new Topic({
@@ -412,6 +412,12 @@ router.route('/:level/topics/:id/edit')
       req.flash('error', 'Please enter a topic name.');
       return res.redirect('back');
     }
+  // Check if the name already exists
+  const existingTopic = await Topic.findOne({ name, level });
+  if (existingTopic) {
+    req.flash('error', 'Cannot rename it with existing topic in this level.');
+    return res.redirect('back');
+  }
 
     const updatedTopic = await Topic.findByIdAndUpdate(id, { name, description }, { new: true });
 

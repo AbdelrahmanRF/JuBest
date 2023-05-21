@@ -452,8 +452,7 @@ router.post('/:level/topics/postLink/:id', validateLevel, isLoggedIn, isAdmin, c
     title
   };
   topic.links.push(link);
-  await topic.save();
-
+  await topic.save()
   const newLinkId = topic.links[topic.links.length - 1]._id; // Get the ID of the newly added link
 
   req.flash('success', 'Link posted successfully');
@@ -512,12 +511,19 @@ router.post('/:level/topics/addMaterial/:id', validateLevel, isLoggedIn, isAdmin
     icon: getIcon(fileTypeResult)
   };
   topic.materials.push(material);
-  await topic.save();
-
-  const newMaterialId = topic.materials[topic.materials.length - 1]._id; // Get the ID of the newly added material
-
+  await topic.save()
+  .then(topic => {
+ const newMaterialId = topic.materials[topic.materials.length - 1]._id; // Get the ID of the newly added material
   req.flash('success', `${title} uploaded successfully.`);
   res.redirect(`/levels/${level}/topics#${newMaterialId}`);
+
+    })
+    .catch(err => {
+      // console.log(err);
+      res.render('error', { message: 'Error uploading material', err: err });
+    });
+
+  
 }));
 
 

@@ -82,7 +82,7 @@ addQuestionBtn.addEventListener('click', () => {
 
         const removeOptionBtn = document.createElement('button'); // Create the "Remove Option" button
         removeOptionBtn.type = 'button';
-        removeOptionBtn.textContent = 'Remove Option';
+        removeOptionBtn.textContent = 'x';
         removeOptionBtn.classList.add('btn', 'btn-danger', 'ms-3', 'col-auto');
 
         removeOptionBtn.addEventListener('click', () => {

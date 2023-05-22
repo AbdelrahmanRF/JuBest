@@ -79,8 +79,11 @@ addOptionBtn.forEach((button) => {
 
         const removeOptionBtn = document.createElement('button'); // Create the "Remove Option" button
         removeOptionBtn.type = 'button';
-        removeOptionBtn.textContent = 'x';
-        removeOptionBtn.classList.add('btn', 'btn-danger', 'ms-3', 'col-auto');
+        const strongElement = document.createElement('strong'); // Create the <strong> element
+        strongElement.textContent = 'X';
+
+        removeOptionBtn.appendChild(strongElement); // Append the <strong> element to the button
+        removeOptionBtn.classList.add('btn', 'ms-3', 'col-auto');
 
         removeOptionBtn.addEventListener('click', () => {
             removeOption(questionDiv, optionLabelContainer, optionNumber);
@@ -180,8 +183,11 @@ addQuestionBtn.addEventListener('click', () => {
 
         const removeOptionBtn = document.createElement('button'); // Create the "Remove Option" button
         removeOptionBtn.type = 'button';
-        removeOptionBtn.textContent = 'x';
-        removeOptionBtn.classList.add('btn', 'btn-danger', 'ms-3', 'col-auto');
+        const strongElement = document.createElement('strong'); // Create the <strong> element
+        strongElement.textContent = 'X';
+
+        removeOptionBtn.appendChild(strongElement); // Append the <strong> element to the button
+        removeOptionBtn.classList.add('btn', 'ms-3', 'col-auto');
 
         removeOptionBtn.addEventListener('click', () => {
             optionLabelContainer.remove();

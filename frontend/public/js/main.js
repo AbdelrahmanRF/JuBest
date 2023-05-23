@@ -99,219 +99,143 @@
 
 })(jQuery);
 
+let isAudioPlaying = false;
+let previousAudio = null;
 
-function sound1() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/alif.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound2() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/ba.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound3() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/ta.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound4() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/tha.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-
-function sound5() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/jiim.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound6() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/hha.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound7() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/kha.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound8() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/daal.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-
-function sound9() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/thaal.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound10() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/ra.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound11() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/zay.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound12() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/siin.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound13() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/shiin.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound14() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/saad.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound15() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/daad.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound16() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/taa.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound17() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/thaa.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound18() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/ayn.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound19() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/ghayn.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound20() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/fa.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound21() {
-    var snd = new Audio('/audio/qaf.mp3')//wav is also supported
-    snd.play()//plays the sound
-}
-function sound22() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/kaf.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound23() {
-    setTimeout(function() {
-}, 2000); // 2-second delay
-    var snd = new Audio('/audio/lam.mp3')//wav is also supported
-    snd.play()//plays the sound
-    setTimeout(function() {
-}, 2000); // 2-second delay
-}
-function sound24() {
-    setTimeout(function() {
-    var snd = new Audio('/audio/miim.mp3')//wav is also supported
-    snd.play()//plays the sound
-    }, 2000); // 2-second delay
-}
-function sound25() {
-    setTimeout(function() {
-    var snd = new Audio('/audio/nuun.mp3')//wav is also supported
-    snd.play()//plays the sound
-    }, 2000); // 2-second delay
-}
-function sound26() {
-    setTimeout(function() {
-    var snd = new Audio('/audio/ha.mp3')//wav is also supported
-    snd.play()//plays the sound
-    }, 2000); // 2-second delay
-}
-function sound27() {
-setTimeout(function() {
-    var snd = new Audio('/audio/waw.mp3')//wav is also supported
-    snd.play()//plays the sound
-    }, 2000); // 2-second delay
-}
-function sound28() {
-    setTimeout(function() {
-      var snd = new Audio('/audio/ya.mp3');
-      snd.play();
-    }, 2000); // 2-second delay
+function playSoundWithDelay(audioUrl) {
+    if (!isAudioPlaying) {
+      isAudioPlaying = true;
+  
+      const audio = new Audio(audioUrl);
+  
+      if (previousAudio) {
+        setTimeout(function() {
+          previousAudio.pause();
+          previousAudio.currentTime = 0;
+          audio.play();
+          previousAudio = audio;
+          isAudioPlaying = false;
+        }, 1000); // 1-second delay
+      } else {
+        audio.play();
+        previousAudio = audio;
+        isAudioPlaying = false;
+      }
+    }
   }
+  function sound1() {
+    playSoundWithDelay('/audio/alif.mp3');
+  }
+  
+  function sound2() {
+    playSoundWithDelay('/audio/ba.mp3');
+  }
+  
+  function sound3() {
+    playSoundWithDelay('/audio/ta.mp3');
+  }
+  
+  function sound4() {
+    playSoundWithDelay('/audio/tha.mp3');
+  }
+  
+  function sound5() {
+    playSoundWithDelay('/audio/jiim.mp3');
+  }
+  
+  function sound6() {
+    playSoundWithDelay('/audio/hha.mp3');
+  }
+  
+  function sound7() {
+    playSoundWithDelay('/audio/kha.mp3');
+  }
+  
+  function sound8() {
+    playSoundWithDelay('/audio/daal.mp3');
+  }
+  
+  function sound9() {
+    playSoundWithDelay('/audio/thaal.mp3');
+  }
+  
+  function sound10() {
+    playSoundWithDelay('/audio/ra.mp3');
+  }
+  
+  function sound11() {
+    playSoundWithDelay('/audio/zay.mp3');
+  }
+  
+  function sound12() {
+    playSoundWithDelay('/audio/siin.mp3');
+  }
+  
+  function sound13() {
+    playSoundWithDelay('/audio/shiin.mp3');
+  }
+  
+  function sound14() {
+    playSoundWithDelay('/audio/saad.mp3');
+  }
+  
+  function sound15() {
+    playSoundWithDelay('/audio/daad.mp3');
+  }
+  
+  function sound16() {
+    playSoundWithDelay('/audio/taa.mp3');
+  }
+  
+  function sound17() {
+    playSoundWithDelay('/audio/thaa.mp3');
+  }
+  
+  function sound18() {
+    playSoundWithDelay('/audio/ayn.mp3');
+  }
+  
+  function sound19() {
+    playSoundWithDelay('/audio/ghayn.mp3');
+  }
+  
+  function sound20() {
+    playSoundWithDelay('/audio/fa.mp3');
+  }
+  
+  function sound21() {
+    playSoundWithDelay('/audio/qaf.mp3');
+  }
+  
+  function sound22() {
+    playSoundWithDelay('/audio/kaf.mp3');
+  }
+  
+  function sound23() {
+    playSoundWithDelay('/audio/lam.mp3');
+  }
+  
+  function sound24() {
+    playSoundWithDelay('/audio/miim.mp3');
+  }
+  
+  function sound25() {
+    playSoundWithDelay('/audio/nuun.mp3');
+  }
+  
+  function sound26() {
+    playSoundWithDelay('/audio/ha.mp3');
+  }
+  
+  function sound27() {
+    playSoundWithDelay('/audio/waw.mp3');
+  }
+  
+function sound28() {
+    playSoundWithDelay('/audio/ya.mp3');
+  }
+
+
 
 // Iterate through each play button
 const playButtons = document.querySelectorAll('.play-button');
@@ -321,11 +245,26 @@ playButtons.forEach(button => {
     const audioUrl = button.getAttribute('data-url');
     const audio = new Audio(audioUrl);
 
-    setTimeout(function() {
-      audio.play();
-    }, 2000); // 2-second delay
+    if (!isAudioPlaying) {
+      isAudioPlaying = true;
+
+      if (previousAudio) {
+        setTimeout(function() {
+          previousAudio.pause();
+          previousAudio.currentTime = 0;
+          audio.play();
+          previousAudio = audio;
+          isAudioPlaying = false;
+        }, 1000); // 2-second delay
+      } else {
+        audio.play();
+        previousAudio = audio;
+        isAudioPlaying = false;
+      }
+    }
   });
 });
+
 
 
 

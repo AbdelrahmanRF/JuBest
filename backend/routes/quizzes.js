@@ -25,13 +25,13 @@ router.get('/', isLoggedIn, noCache, catchAsync(async (req, res) => {
     });
 
     // Retrieve the quiz sessions
-    const quizSessions = await QuizSession.find({ id: QuizSession._id });
+     const quizSessions = await QuizSession.find({ user: req.user.id });
 
     if (quizSessions) {
-        for (const quizSession of quizSessions) {
-            // Delete each quiz session
-            await QuizSession.findByIdAndDelete(quizSession._id);
-        }
+      for (const quizSession of quizSessions) {
+        // Delete each quiz session
+        await QuizSession.findByIdAndDelete(quizSession._id);
+      }
     }
 
     res.render('levels/quiz', { level, quizzes: formattedQuizzes });

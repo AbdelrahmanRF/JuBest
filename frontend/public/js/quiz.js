@@ -21,7 +21,7 @@ function getQuizDataFromServer() {
     const id = pathArray[4];
     const token = document.querySelector('meta[name="quiz-token"]').content;
 
-    axios.get(`/levels/${level}/quiz/${id}/data`, { params: { token } })
+    axios.get(`/levels/${level}/quiz/${id}/data-end-point`, { params: { token } })
         .then(response => {
             quiz = response.data;
             return Promise.resolve(quiz);

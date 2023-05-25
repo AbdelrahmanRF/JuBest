@@ -173,7 +173,7 @@ router.route('/:id/edit')
 
 
 
-router.get('/:id/data', isLoggedIn, validateQuizId, catchAsync(async (req, res) => {
+router.get('/:id/data-end-point', isLoggedIn, validateQuizId, catchAsync(async (req, res) => {
     const { level, id } = req.params;
     const token = req.query.token;
     const quizSession = await QuizSession.findOne({ token, quiz: id, user: req.user.id });

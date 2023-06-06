@@ -61,13 +61,16 @@ router.get('/confirm', noCache, (req, res) => {
 });
 
 
-router.post('/signin', passport.authenticate('local', { keepSessionInfo: true, failureFlash: 'Invalid email or password.', failureRedirect: '/signin' }), (req, res) => {
-
-    req.flash('success', 'welcome back !');
-    const redirectUrl = req.session.returnTo || '/levels';
-    delete req.session.returnTo;
-    res.redirect(redirectUrl);
-})
+router.post('/signin', (req, res, next) => {
+  // Convert the email to lowercase
+  req.body.email = req.body.email.toLowerCase();
+  next();
+}, passport.authenticate('local', { keepSessionInfo: true, failureFlash: 'Invalid email or password.', failureRedirect: '/signin' }), (req, res) => {
+  req.flash('success', 'Welcome back!');
+  const redirectUrl = req.session.returnTo || '/levels';
+  delete req.session.returnTo;
+  res.redirect(redirectUrl);
+});
 
 router.get('/logout', (req, res, next) => {
     req.logout((err) => {
